@@ -32,27 +32,26 @@ int main() {
 
 // Function to reverse first k elements of a queue.
 queue<int> modifyQueue(queue<int> q, int k) {
+    // add code here.
     stack<int>s;
-    for(int i=0;i<k;i++)
+    queue<int>ans;
+    int cnt=k;
+    while(cnt--)
     {
         int val=q.front();
         q.pop();
         s.push(val);
     }
-    
-    for(int i=0;i<k;i++){
+    while(!s.empty()){
         int val=s.top();
+        ans.push(val);
         s.pop();
-        q.push(val);
     }
-    int t=q.size()-k;
-    
-    while(t--)
-    {
+    while(!q.empty()){
         int val=q.front();
         q.pop();
-        q.push(val);
+        ans.push(val);
     }
-    return q;
+    return ans;
     
 }
