@@ -9,16 +9,29 @@ public:
     vector<int> singleNumber(vector<int> nums) 
     {
         // Code here.
-        map<int,int>m;
+        // map<int,int>m;
         vector<int>ans;
-        for(auto x:nums){
-        m[x]++;
-        }
-        for(auto x:m)
-        {
-            if(x.second==1){
-                ans.push_back(x.first);
+        // for(auto x:nums){
+        // m[x]++;
+        // }
+        // for(auto x:m)
+        // {
+        //     if(x.second==1){
+        //         ans.push_back(x.first);
+        //     }
+        // }
+        // return ans;
+        sort(nums.begin(),nums.end());
+        for(int i=0;i<nums.size();i++){
+            if(i==0 and nums[i]!=nums[i+1])
+            ans.push_back(nums[i]);
+            else if(i==nums.size()-1 and nums[i]!=nums[i-1]){
+                ans.push_back(nums[i]);
             }
+            else if(nums[i]!=nums[i-1] and nums[i]!=nums[i+1]){
+                ans.push_back(nums[i]);
+            }
+           
         }
         return ans;
     }
