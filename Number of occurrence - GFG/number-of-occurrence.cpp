@@ -19,6 +19,9 @@ public:
 	        {
 	            ans += 1;
 	        }
+	        if(arr[i] > x){
+	            break;
+	        }
 	    }
 	    return ans;
 	}
