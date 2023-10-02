@@ -1,20 +1,76 @@
 class Solution {
 public:
+// bool great(vector<int>nums,int s , int e)
+// {
+  
+//     for(int i = s; i < e; ++i)
+//         {
+        
+//                 if(nums[i] < nums[i + 1])
+//                 {
+//                   return false;
+//                 }
+//         }
+//         return true;
+          
+// }
+// bool less(vector<int>nums, int s , int e)
+// {
+//     for(int i = s; i < e; ++i)
+//         {
+        
+//                 if(nums[i] > nums[i + 1])
+//                 {
+//                   return false;
+//                 }
+//         }
+//         return true;
+          
+// }
     bool isMonotonic(vector<int>& nums) {
-        bool increasing = true;
-        bool decreasing = true;
+//       if(nums.size() == 1)return true;
+//           if(nums[0] > nums[1])
+//         {
+//           return great(nums,1,nums.size() - 1 );
+//         }
+//         if(nums[0] < nums[1])
+//         {
+//           return less(nums,1,nums.size() - 1 );
+//         }
+//         else 
+//         {
+//             if(nums.size() == 2 && nums[0] == nums[1])return true;
+//             for(int i = 0; i < nums.size() - 1; ++i)
+//             {
+//                 if(nums[i] == nums[i + 1])continue;
+//                 if(nums[i] > nums[i + 1])return great(nums,i,nums.size() -1);
+//                 if(nums[i] < nums[i + 1])return less(nums,i,nums.size() -1);
 
-        for (int i = 1; i < nums.size(); ++i) {
-            if (nums[i] > nums[i - 1]) {
-                decreasing = false;
-            } else if (nums[i] < nums[i - 1]) {
-                increasing = false;
-            }
+//             }
+//         }
+        
+      
+//         return true;
 
-            if (!increasing && !decreasing) {
+    bool inc = true;
+    bool des = true;
+
+    for(int i = 0; i < nums.size() - 1; ++i)
+    {
+        if(nums[i]>nums[i + 1])
+        {
+            des = false;
+        }
+        else if(nums[i] < nums[i + 1])
+        {
+            inc = false;
+        }
+    
+     if (!inc&& !des) {
                 return false;
             }
-        }
+    }
         return true;
+
     }
 };
