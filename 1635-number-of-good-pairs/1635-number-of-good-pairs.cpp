@@ -3,10 +3,11 @@ public:
     int numIdenticalPairs(vector<int>& nums) {
         int n = nums.size();
         int ans = 0; 
-        unordered_map<int,int>mp;
+        vector<int>freq(101,0);
         for(int x : nums)
         {
-            ans +=mp[x]++;
+            ans +=freq[x];
+            freq[x]++;
         }
         return ans;
     }
