@@ -3,15 +3,10 @@ public:
     int numIdenticalPairs(vector<int>& nums) {
         int n = nums.size();
         int ans = 0; 
-        for(int i = 0; i < n; ++i)
+        unordered_map<int,int>mp;
+        for(int x : nums)
         {
-            for(int j = 0; j < n; ++j)
-            {
-                if(nums[i] == nums[j] && i < j)
-                {
-                    ans++;
-                }
-            }
+            ans +=mp[x]++;
         }
         return ans;
     }
